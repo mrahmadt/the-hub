@@ -54,8 +54,6 @@ class LoginController extends Controller
             // You should show something simple fail message
             return $this->sendFailedResponse($e->getMessage());
         }
-
-        //with(['redirect_uri' =>'https://the-hub.azurewebsites.net/login/azure/callback'])->
     }
 
     /**
@@ -96,7 +94,8 @@ class LoginController extends Controller
 
         //TODO: if we have the email in database the creation will fail
 
-        dd($providerUser);
+        print_r($provider_id);
+        dd($driver);
         // if user already found
         if( $user ) {
             // update the avatar and provider that might have changed
