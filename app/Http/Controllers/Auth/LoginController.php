@@ -98,6 +98,7 @@ class LoginController extends Controller
         if( $user ) {
             // update the avatar and provider that might have changed
             $user->update([
+                'name' => $providerUser->getName(),
                 'avatar' => $providerUser->avatar,
                 //'provider' => $driver,
                 //'provider_id' => $providerUser->id,
