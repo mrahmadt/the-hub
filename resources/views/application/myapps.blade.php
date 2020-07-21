@@ -7,7 +7,7 @@
 <!--
 Custom: Change alert color https://getbootstrap.com/docs/4.0/components/alerts/
 -->
-@if (isset($settings['users.announcement']['uid']) && $settings['users.announcement']['uid']!='')
+@if (isset($settings['users.announcement']['uid']) && $settings['users.announcement']['value']!='')
 <div class="d-none alert alert-info alert-dismissible fade show img-auto-fluid" id="{{$settings['users.announcement']['uid'] ?? ''}}" role="alert">
 {!!$settings['users.announcement']['value']!!}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
