@@ -104,7 +104,6 @@ class ApplicationsController extends Controller
             ->orderBy('updated_at', 'desc')
             ->take(10)
             ->get();
-            dd( $applications);
         }
         $settings = Setting::getSettings();
 
