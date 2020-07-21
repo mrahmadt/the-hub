@@ -19,6 +19,10 @@ Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('s
 Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.callback');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+
+Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTeams');
+
+
 Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/', 'ApplicationsController@myapps')->name('home');

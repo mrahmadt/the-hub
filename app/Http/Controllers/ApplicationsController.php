@@ -66,6 +66,13 @@ class ApplicationsController extends Controller
         return response()->json(['status' => '1']);
     }
 
+    public function teamsUI(Request $request){
+
+        print_r($_GET);
+        print "<hr>";
+        print_r($_POST);
+        dd($request);
+    }
     public function myapps()
     {
         if (!Auth::check()) {
