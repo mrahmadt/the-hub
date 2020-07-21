@@ -96,13 +96,14 @@ class LoginController extends Controller
 
         //TODO: if we have the email in database the creation will fail
 
+        dd($providerUser);
         // if user already found
         if( $user ) {
             // update the avatar and provider that might have changed
             $user->update([
                 'avatar' => $providerUser->avatar,
-                'provider' => $driver,
-                'provider_id' => $providerUser->id,
+                //'provider' => $driver,
+                //'provider_id' => $providerUser->id,
                 'access_token' => $providerUser->token
             ]);
         } else {
