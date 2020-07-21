@@ -92,7 +92,6 @@ class LoginController extends Controller
     {
         $provider_id = $providerUser->getId();
         // check for already has account
-        //$user = User::where('email', $providerUser->getEmail())->first();
         $user = User::where(['provider'=> $driver, 'provider_id'=>$provider_id])->first();
 
         //TODO: if we have the email in database the creation will fail
@@ -102,8 +101,8 @@ class LoginController extends Controller
             // update the avatar and provider that might have changed
             $user->update([
                 'avatar' => $providerUser->avatar,
-                //'provider' => $driver,
-                //'provider_id' => $providerUser->id,
+                'provider' => $driver,
+                'provider_id' => $providerUser->id,
                 'access_token' => $providerUser->token
             ]);
         } else {
