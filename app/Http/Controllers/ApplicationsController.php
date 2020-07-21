@@ -96,7 +96,15 @@ class ApplicationsController extends Controller
        
 
         $applications = $user->applications;
-                
+        
+        if(!$applications){
+            $applications = Application::select(['id','name','url','icon','isNewPage','isNewPageForIframe','category_id'])
+            ->where('activated',1)
+            ->orderBy('isFeatured', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->take(10)
+            ->get();
+        }
         $settings = Setting::getSettings();
 
         return view('application.myapps',['categories'=>$categories,'tabs'=>$tabs,'applications'=>$applications,'settings'=>$settings,'user'=>$user]);
