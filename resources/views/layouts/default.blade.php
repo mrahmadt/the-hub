@@ -102,7 +102,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
 
 @show
 <div class="container-fluid mt-3 {{$content_class??''}}">
-@if (isset($settings['ui.banner.top']))
+@if (isset($settings['ui.banner.top']) && $settings['ui.banner.top']!='')
 <div class="img-auto-fluid">
 {!!$settings['ui.banner.top']['value']!!}
 </div>
