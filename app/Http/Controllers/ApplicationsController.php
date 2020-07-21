@@ -97,7 +97,7 @@ class ApplicationsController extends Controller
 
         $applications = $user->applications;
         
-        if(!$applications){
+        if(!count($applications)){
             $applications = Application::select(['id','name','url','icon','isNewPage','isNewPageForIframe','category_id'])
             ->where('activated',1)
             ->orderBy('isFeatured', 'desc')
