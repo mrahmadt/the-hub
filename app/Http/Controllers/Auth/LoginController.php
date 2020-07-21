@@ -94,8 +94,6 @@ class LoginController extends Controller
 
         //TODO: if we have the email in database the creation will fail
 
-        print_r($provider_id);
-        dd($driver);
         // if user already found
         if( $user ) {
             // update the avatar and provider that might have changed
