@@ -123,8 +123,8 @@
                         reject(responseJson.error);
                     } else {
                         display("2. then responseJson.error else");
-                        console.log(responseJson.redirect);
-                        window.location.replace(responseJson.redirect);
+                        console.log(responseJson);
+                        window.location.href = responseJson;
                         const serverSideToken = responseJson;
                         //display(serverSideToken);
                         resolve(serverSideToken);
