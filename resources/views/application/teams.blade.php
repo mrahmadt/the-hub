@@ -105,16 +105,22 @@
                     cache: 'default'
                 })
                 .then((response) => {
+                    display("2. then response");
                     if (response.ok) {
+                        display("2. then response.ok");
                         return response.json();
                     } else {
+                        display("2. then response.ok else");
                         reject(response.error);
                     }
                 })
                 .then((responseJson) => {
+                    display("2. then responseJson");
                     if (responseJson.error) {
+                        display("2. then responseJson.error");
                         reject(responseJson.error);
                     } else {
+                        display("2. then responseJson.error else");
                         const serverSideToken = responseJson;
                         display(serverSideToken);
                         resolve(serverSideToken);
