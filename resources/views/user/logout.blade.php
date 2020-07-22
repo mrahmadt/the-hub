@@ -9,11 +9,14 @@
 <body class="">
 <div class="container" style="padding-top:10em;">
 
-<div class="card"><div class="card-body img-auto-fluid text-center">
-    <img src="{{asset('img/logo.svg')}}" width="100" height="100" alt="" loading="lazy">
-    <p>
-    <h1>Good Bye</h1><a class="btn btn-primary" href="{{ url('/') }}">Login</a></div></div>
-    </p>
+<div class="card">
+    <div class="card-body img-auto-fluid text-center">
+        <img src="{{asset('img/logo.svg')}}" width="100" height="100" alt="" loading="lazy">
+        <p><h1>Good Bye</h1></p>
+        <a class="btn btn-primary" href="{{ url('/') }}">Login</a>
+    </div>
+</div>
+    
 
 </div>
 <script src="{{asset('js/app.js')}}"></script>
