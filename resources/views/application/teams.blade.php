@@ -182,6 +182,9 @@
 
     // Add text to the display in a <p> or other HTML element
     function display(text, elementTag) {
+      console.log('display');
+      console.log(text);
+      
         var logDiv = document.getElementById('logs');
         var p = document.createElement(elementTag ? elementTag : "p");
         p.innerText = text;
