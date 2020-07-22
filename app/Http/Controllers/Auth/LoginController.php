@@ -137,11 +137,11 @@ class LoginController extends Controller
 
     
     public function teamsAuthStart(Request $request){
-        return view('auth.teams-start',['clientId'=>config("app.azure_ad_key")]);
+        return view('auth.teams-start',['clientId'=>config("app.microsoft_key")]);
     }
     
     public function teamsAuthEnd(Request $request){
-        return view('auth.teams-end',['clientId'=>config("app.azure_ad_key")]);
+        return view('auth.teams-end',['clientId'=>config("app.microsoft_secret")]);
     }
 
     public function teamsToken(Request $request){
@@ -185,8 +185,8 @@ class LoginController extends Controller
         //$url = "https://login.windows.net/common/oauth2/token/" . $tid . "/oauth2/v2.0/token";
         
         $params = [
-            'client_id' => config("app.azure_ad_key"),
-            'client_secret' => config("app.azure_ad_secret"),
+            'client_id' => config("app.microsoft_key"),
+            'client_secret' => config("app.microsoft_secret"),
             'grant_type' => "urn:ietf:params:oauth:grant-type:jwt-bearer",
             'assertion' => $token,
             'requested_token_use' => "on_behalf_of",
