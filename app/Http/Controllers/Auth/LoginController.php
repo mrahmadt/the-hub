@@ -180,7 +180,7 @@ class LoginController extends Controller
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch); 
 
-        return response()->json(['code'=>$httpCode,'status'=>'ok'],200);
+        return response()->json(['code'=>$httpCode,'status'=>'ok','ok'=>true,'error'=>false],200);
         print_r($httpCode);
         dd($apiResponse);
         //$jsonArrayResponse - json_decode($apiResponse);
