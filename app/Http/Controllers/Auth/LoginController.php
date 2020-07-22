@@ -213,7 +213,19 @@ class LoginController extends Controller
             "error_codes\":[65001],\"timestamp\":\"2020-07-22 09:49:26Z\",\"trace_id\":\"87800519-8aec-4ae9-8c4d-50464ea11f00\",
             \"correlation_id\":\"ce79db00-c21a-4037-bde1-d46eb64d595e\",\"suberror\":\"consent_required\"}
 
-
+""{\"token_type\":\"Bearer\",\"scope\":\"email openid profile https:\/\/graph.microsoft.com\/User.Read\"
+    ,\"expires_in\":6117,\"ext_expires_in\":6117,\"access_token\":\"eyJ0eXAiOiJKV1QiLCJub25jZSI6IktzUDZkQ2Q1Q2hwTVJiRGVNbEdxc3NRMkZwYj
+    Z3MFY0WnVfMWh3NzZaZm8iLCJhbGciOiJSUzI1NiIsIng1dCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTSIsImtpZCI6Imh1Tjk1SXZQZmVocTM0R3pCRFoxR1hHaXJuTSJ9.eyJhdWQiOiJodHRwczovL2dyYX
+    BoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yMmIxNTY3Ny1hOWFlLTRiNjYtOTA2NC1jYmRlNWYxM2IwNmYvIiwiaWF0IjoxNTk1NDMwODg0LCJuYmYiOjE1OTU0MzA4ODQsImV
+    4cCI6MTU5NTQzNzMwMiwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhRQUFBQXg4WU9vbHlzaS9UMUVsMFFzUXJ2R05jUzlKb29iMmxWbEpEWTdjbUQrTFk9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hb
+    WUiOiJUaGUgSHViIiwiYXBwaWQiOiI1M2NkYTI5ZS03Nzk4LTQ5NGItOGNmMC1iMGI0YjUwY2E1MmQiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkFsVHdhaWppcnkiLCJnaXZlbl9uYW1lIjoiQWhtYWQiLCJpcGFk
+    ZHIiOiI3Ny4zMC4xMDcuMTYxIiwibmFtZSI6IkFobWFkIEFsVHdhaWppcnkiLCJvaWQiOiJmMzgwZjVkYi1iMmJhLTQyZjktODI3YS00MTQ4ODU1MzRhYmMiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDBEMjFFREY1NCIsIn
+    NjcCI6ImVtYWlsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCIsInN1YiI6IjZ5VmU1ZUVEeUVyMlRMVEYxSVVCZDRCa2dNN2dwYTl3WVhmR2hpWFFwNE0iLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiRVUiLCJ0aW
+    QiOiIyMmIxNTY3Ny1hOWFlLTRiNjYtOTA2NC1jYmRlNWYxM2IwNmYiLCJ1bmlxdWVfbmFtZSI6ImFobWFkdEBhaG1hZHQwMDAub25taWNyb3NvZnQuY29tIiwidXBuIjoiYWhtYWR0QGFobWFkdDAwMC5vbm1pY3Jvc29md
+    C5jb20iLCJ1dGkiOiJ6TzRURXA1QmQwcVl3S3RfTVpReEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiXSwieG1zX3N0Ijp7InN1YiI6IkZWVHdPUnJrakp
+    ZRWZSdF9ZdUlvWFhSbUhYeGVKaGdadWkzRFpPSkhsSjAifSwieG1zX3RjZHQiOjE1OTUzOTEyMDh9.NdVFk4rWspg7btMhJ4q81Zah7ZB3dv1BcwysW0ELG2ABe-0Nc85pIGYMWAeD1HtzFUGNP_w
+    8aborYigONnuiHuOk90sQu4O7ncGiZ1fHmGrCRgL-5fbOfkZd8N3fL3on2s8E6ElGRCnLFhZITy5S0W44IdzHTJdPeSmVe-8dqXysz2lKqn9cAUaUBztTucZvyhbLhCQ6hY1VQD4rI8IlKXtl9i17UAfleBd
+    OZVM2IoLJ3PJGsGecSU_vqz_jyKCHeqA5sFqyn4wIaXD8yLrgKURRSfI0J7Z6DV4vGkCGGxDGCZq9AHCg4hA2UFFx7NWWuc2JHbA2iITFW0Ea8dDz0g\"}""
         */
 
         //print "sdasda";
