@@ -98,12 +98,18 @@ class LoginController extends Controller
 
         //TODO: if we have the email in database the creation will fail
 
+        $avatar = null;
+        try{
+            $avatar = $providerUser->avatar;
+        } catch (\Exception $e) {
+        }
+
         // if user already found
         if( $user ) {
             // update the avatar and provider that might have changed
             $user->update([
                 'name' => $providerUser->getName(),
-                'avatar' => $providerUser->avatar,
+                'avatar' => $avatarr,
                 //'provider' => $driver,
                 //'provider_id' => $providerUser->id,
                 'access_token' => $providerUser->token
@@ -113,7 +119,7 @@ class LoginController extends Controller
             $user = User::create([
                 'name' => $providerUser->getName(),
                 'email' => $providerUser->getEmail(),
-                'avatar' => $providerUser->getAvatar(),
+                'avatar' => $avatar,
                 'provider' => $driver,
                 'provider_id' => $provider_id,
                 'access_token' => $providerUser->token
@@ -204,18 +210,18 @@ class LoginController extends Controller
 
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
-            print_r($apiResponse_array->access_token);
             try {
                 $user = Socialite::driver( $driver )->userFromToken($apiResponse_array->access_token);
                         // check for email in returned user
-                if((!isset($user->email)) || empty( $user->email )){
-                    return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
-                }else{
-                    $this->loginOrCreateAccount($user, $driver);
-                    return response()->json(['redirect'=>'/myapps'],200);
-                }
             } catch (\Exception $e) {
             }
+            if((!isset($user->email)) || empty( $user->email )){
+                return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
+            }else{
+                $this->loginOrCreateAccount($user, $driver);
+                return response()->json(['redirect'=>'/myapps'],200);
+            }
+
         }elseif(isset($apiResponse_array->error)){
             return response()->json(['error'=>$apiResponse_array->error],200);
         }else{
