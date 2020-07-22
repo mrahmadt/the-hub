@@ -152,7 +152,7 @@ class LoginController extends Controller
 
         $scopes = ["https://graph.microsoft.com/User.Read"];
 
-        $url = "https://login.microsoftonline.com/" + $tid + "/oauth2/v2.0/token";
+        $url = "https://login.microsoftonline.com/" . $tid . "/oauth2/v2.0/token";
 
 
         $params = [
