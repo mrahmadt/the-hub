@@ -25,7 +25,7 @@
                 response_type: "id_token token",
                 response_mode: "fragment",
                 scope: "https://graph.microsoft.com/User.Read email openid profile offline_access",
-                redirect_uri: window.location.origin + "/login/azure/callback",
+                redirect_uri: window.location.origin + "/login/microsoft/callback",
                 nonce: _guid(),
                 state: state,
                 login_hint: context.loginHint,

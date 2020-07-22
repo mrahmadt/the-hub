@@ -123,9 +123,10 @@
                         reject(responseJson.error);
                     } else {
                         display("2. then responseJson.error else");
-                        console.log(responseJson);
+                        console.log(responseJson.redirect);
+                        window.location.replace(responseJson.redirect);
                         const serverSideToken = responseJson;
-                        display(serverSideToken);
+                        //display(serverSideToken);
                         resolve(serverSideToken);
                     }
                 });
@@ -184,7 +185,7 @@
     function display(text, elementTag) {
       console.log('display');
       console.log(text);
-      
+
         var logDiv = document.getElementById('logs');
         var p = document.createElement(elementTag ? elementTag : "p");
         p.innerText = text;
