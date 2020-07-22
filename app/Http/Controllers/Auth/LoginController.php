@@ -133,6 +133,14 @@ class LoginController extends Controller
     }
 
     
+    public function teamsAuthStart(Request $request){
+        return view('auth.teams-start',['clientId'=>config("app.azure_ad_key")]);
+    }
+    
+    public function teamsAuthEnd(Request $request){
+        return view('auth.teams-end',['clientId'=>config("app.azure_ad_key")]);
+    }
+
     public function teamsToken(Request $request){
 
         $json = [
