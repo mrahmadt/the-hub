@@ -118,12 +118,8 @@ class LoginController extends Controller
                 'access_token' => $providerUser->token
             ]);
         }
-
-
-        
         // login the user
         Auth::login($user, true);
-
         return $this->sendSuccessResponse();
     }
 
