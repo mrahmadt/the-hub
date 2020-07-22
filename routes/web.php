@@ -44,4 +44,4 @@ Route::get('/manifest.json', function () {
 
 
 Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTeams');
-Route::post('/teams/auth/token','LoginController@teamsToken')->name('teamsToken');
+Route::post('/teams/auth/token','Auth\LoginController@teamsToken')->name('teamsToken');
