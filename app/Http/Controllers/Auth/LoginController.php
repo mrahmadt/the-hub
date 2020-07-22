@@ -196,11 +196,9 @@ class LoginController extends Controller
         ]);
 
         $apiResponse = curl_exec($ch);
-        //$apiResponse_json = \json_encode($apiResponse);
         $apiResponse_array = \json_decode($apiResponse);
-        
         if(isset($apiResponse_array->access_token)){
-            return response()->json(['data'=>$apiResponse_array->access_token],200);
+            return response()->json($apiResponse_array->access_token,200);
         }elseif(isset($apiResponse_array->error)){
             return response()->json(['error'=>$apiResponse_array->error],200);
         }else{
