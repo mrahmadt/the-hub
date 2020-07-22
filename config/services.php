@@ -34,4 +34,15 @@ return [
         'client_secret' => env('AZURE_SECRET'),
         'redirect' => env('AZURE_REDIRECT_URI')
     ],
+    'graph' => [
+        'client_id' => env('GRAPH_KEY'),
+        'client_secret' => env('GRAPH_SECRET'),
+        'redirect' => env('GRAPH_REDIRECT_URI')
+    ],
+    'microsoft' => [
+        'client_id' => env('MICROSOFT_KEY'),
+        'client_secret' => env('MICROSOFT_SECRET'),
+        'redirect' => env('MICROSOFT_REDIRECT_URI')
+    ],
+    
 ];

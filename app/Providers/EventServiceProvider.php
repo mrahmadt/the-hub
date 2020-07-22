@@ -20,7 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // add your listeners (aka providers) here
-            'SocialiteProviders\\Azure\\AzureExtendSocialite@handle',
+            //'SocialiteProviders\\Azure\\AzureExtendSocialite@handle',
+            //'SocialiteProviders\\Graph\\GraphExtendSocialite@handle',
+            'SocialiteProviders\\Microsoft\\MicrosoftExtendSocialite@handle',
         ],
     ];
 

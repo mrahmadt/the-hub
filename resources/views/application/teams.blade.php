@@ -123,6 +123,7 @@
                         reject(responseJson.error);
                     } else {
                         display("2. then responseJson.error else");
+                        console.log(responseJson);
                         const serverSideToken = responseJson;
                         display(serverSideToken);
                         resolve(serverSideToken);
@@ -194,9 +195,9 @@
         .then((clientSideToken) => {
             return getServerSideToken(clientSideToken);
         })
-        .then((serverSideToken) => {
+        /*.then((serverSideToken) => {
             return useServerSideToken(serverSideToken);
-        })
+        })*/
         .catch((error) => {
             if (error === "invalid_grant") {
                 display(`Error: ${error} - user or admin consent required`);
@@ -208,7 +209,9 @@
                             // Consent succeeded - use the token we got back
                             let accessToken = JSON.parse(result).accessToken;
                             display(`Received access token ${accessToken}`);
-                            useServerSideToken(accessToken);
+                            //TODO FIX ME
+                            alert('FIX ME');
+                            //useServerSideToken(accessToken);
                         })
                         .catch((error) => {
                             display(`ERROR ${error}`);

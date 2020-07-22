@@ -22,7 +22,8 @@ class LoginController extends Controller
     }
 
     protected $providers = [
-        'azure'
+        'microsoft',
+        //'azure'
     ];
 
     public function show()
@@ -138,7 +139,7 @@ class LoginController extends Controller
     }
 
     public function teamsToken(Request $request){
-
+        $driver = 'microsoft';
         $json = [
             'status' => 'error',
             'error' => 'Unknown Error',
@@ -175,6 +176,8 @@ class LoginController extends Controller
         $scopes = ["https://graph.microsoft.com/User.Read"];
 
         $url = "https://login.microsoftonline.com/" . $tid . "/oauth2/v2.0/token";
+        //$url = "https://login.windows.net/common/oauth2/token/" . $tid . "/oauth2/v2.0/token";
+        
         $params = [
             'client_id' => config("app.azure_ad_key"),
             'client_secret' => config("app.azure_ad_secret"),
@@ -201,19 +204,22 @@ class LoginController extends Controller
 
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
-            //print_r($apiResponse_array->access_token);
-            //$user = Socialite::driver('azure')->userFromToken($apiResponse_array->access_token);
-            //dd($user);
-            return response()->json($apiResponse_array->access_token,200);
+            print_r($apiResponse_array->access_token);
+            try {
+                $user = Socialite::driver( $driver )->userFromToken($apiResponse_array->access_token);
+                        // check for email in returned user
+                if((!isset($user->email)) || empty( $user->email )){
+                    return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
+                }else{
+                    $this->loginOrCreateAccount($user, $driver);
+                    return response()->json(['redirect'=>'/myapps'],200);
+                }
+            } catch (\Exception $e) {
+            }
         }elseif(isset($apiResponse_array->error)){
             return response()->json(['error'=>$apiResponse_array->error],200);
         }else{
             return response()->json(['error'=>'unknown'],200);
         }
-
-
-        //TODO Save
-        //TODO login
-
     }
 }
