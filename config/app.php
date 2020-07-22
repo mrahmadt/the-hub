@@ -2,6 +2,10 @@
 
 return [
 
+    'azure_ad_key' => env('AZURE_KEY'),
+    'azure_ad_secret' => env('AZURE_SECRET'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

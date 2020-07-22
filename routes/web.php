@@ -20,7 +20,6 @@ Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallba
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
-Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTeams');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -43,3 +42,6 @@ Route::get('/manifest.json', function () {
     return response(view('manifest_json'),200, ['Content-Type' => 'application/json']);
 });
 
+
+Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTeams');
+Route::post('/teams/auth/token','LoginController@teamsToken')->name('teamsToken');

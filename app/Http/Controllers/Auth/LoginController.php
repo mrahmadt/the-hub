@@ -8,6 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 //TODO: do we need to check Azure AD for each action?
 //TODO: How to setup a time out after inactivity
@@ -131,5 +132,102 @@ class LoginController extends Controller
     }
 
     
+    public function teamsToken(Request $request){
 
+        $output = [
+            'error' => 'Unknown Error',
+        ];
+
+        if($request->has('tid')){
+            $tid = $request->input('tid');
+        }else{
+            return response()->json($output,500);
+        }
+        if($request->has('token')){
+            $token = $request->input('token');
+        }else{
+            return response()->json($output,500);
+        }
+
+        $scopes = ["https://graph.microsoft.com/User.Read"];
+
+        $url = "https://login.microsoftonline.com/" + $tid + "/oauth2/v2.0/token";
+
+
+        $params = [
+            'client_id' => config("app.azure_ad_key"),
+            'client_secret' => config("app.azure_ad_secret"),
+            'grant_type' => "urn:ietf:params:oauth:grant-type:jwt-bearer",
+            'assertion' => $token,
+            'requested_token_use' => "on_behalf_of",
+            'scope' => implode(' ',$scopes),
+        ];
+
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $params,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER, [
+                'Accept: "application/json"',
+                '"Content-Type": "application/x-www-form-urlencoded"',
+            ]
+        ]);
+
+        $apiResponse = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch); 
+
+        return response()->json($httpCode,200);
+        print_r($httpCode);
+        dd($apiResponse);
+        //$jsonArrayResponse - json_decode($apiResponse);
+
+/*
+        var tid = req.body.tid;
+        var token = req.body.token;
+        var scopes = ["https://graph.microsoft.com/User.Read"];
+
+        var oboPromise = new Promise((resolve, reject) => {
+            const url = "https://login.microsoftonline.com/" + tid + "/oauth2/v2.0/token";
+            const params = {
+                client_id: config.get("tab.appId"),
+                client_secret: config.get("tab.appPassword"),
+                grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                assertion: token,
+                requested_token_use: "on_behalf_of",
+                scope: scopes.join(" ")
+            };
+        
+            fetch(url, {
+              method: "POST",
+              body: querystring.stringify(params),
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+            }).then(result => {
+              if (result.status !== 200) {
+                result.json().then(json => {
+                  // TODO: Check explicitly for invalid_grant or interaction_required
+                  reject({"error":json.error});
+                });
+              } else {
+                result.json().then(json => {
+                  resolve(json.access_token);
+                });
+              }
+            });
+        });
+
+        oboPromise.then(function(result) {
+            res.json(result);
+        }, function(err) {
+            console.log(err); // Error: "It broke"
+            res.json(err);
+        });
+
+*/
+    }
 }
