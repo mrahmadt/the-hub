@@ -196,7 +196,7 @@ class LoginController extends Controller
         ]);
 
         $apiResponse = curl_exec($ch);
-        $apiResponse_json = \json_decode($apiResponse);
+        $apiResponse_json = \json_encode($apiResponse);
 
         /*
 
@@ -211,7 +211,7 @@ class LoginController extends Controller
         */
 
         //print "sdasda";
-        //dd($apiResponse);
+        dd($apiResponse_json);
         //return response()->json(['code'=>$httpCode,'status'=>'ok','ok'=>true,'error'=>false],200);
         //print_r($httpCode);
         //dd($apiResponse);
