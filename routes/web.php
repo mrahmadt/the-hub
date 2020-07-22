@@ -45,5 +45,5 @@ Route::get('/manifest.json', function () {
 
 Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTeams');
 Route::post('/teams/auth/token','Auth\LoginController@teamsToken')->name('teamsToken');
-Route::post('/teams/auth/auth-start','Auth\LoginController@teamsAuthStart')->name('teamsAuthStart');
-Route::post('/teams/auth/auth-end','Auth\LoginController@teamsAuthEnd')->name('teamsAuthEnd');
+Route::get('/teams/auth/auth-start','Auth\LoginController@teamsAuthStart')->name('teamsAuthStart');
+Route::get('/teams/auth/auth-end','Auth\LoginController@teamsAuthEnd')->name('teamsAuthEnd');
