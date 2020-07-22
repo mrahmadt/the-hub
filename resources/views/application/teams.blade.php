@@ -164,7 +164,7 @@
     function requestConsent() {
         return new Promise((resolve, reject) => {
             microsoftTeams.authentication.authenticate({
-                url: window.location.origin + "teams/auth/auth-start",
+                url: window.location.origin + "/teams/auth/auth-start",
                 width: 600,
                 height: 535,
                 successCallback: (result) => {
