@@ -142,12 +142,18 @@ class LoginController extends Controller
         if($request->has('tid')){
             $tid = $request->input('tid');
         }else{
-            return response()->json($output,500);
+            return response()->json([
+                'status' => 'error 1',
+                'error' => 'Unknown Error',
+            ],500);
         }
         if($request->has('token')){
             $token = $request->input('token');
         }else{
-            return response()->json($output,500);
+            return response()->json([
+                'status' => 'error 2',
+                'error' => 'Unknown Error',
+            ],500);
         }
 
         $scopes = ["https://graph.microsoft.com/User.Read"];
