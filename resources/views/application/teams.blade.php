@@ -106,6 +106,7 @@
                 })
                 .then((response) => {
                     display("2. then response");
+                    console.log(response);
                     if (response.ok) {
                         display("2. then response.ok");
                         return response.json();
@@ -116,6 +117,7 @@
                 })
                 .then((responseJson) => {
                     display("2. then responseJson");
+                    console.log(responseJson);
                     if (responseJson.error) {
                         display("2. then responseJson.error");
                         reject(responseJson.error);
