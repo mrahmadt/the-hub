@@ -68,10 +68,11 @@ class ApplicationsController extends Controller
 
     public function teamsUI(Request $request){
 
-        print_r($_GET);
-        print "<hr>";
-        print_r($_POST);
-        dd($request);
+        // print_r($_GET);
+        // print "<hr>";
+        // print_r($_POST);
+        // dd($request);
+        return view('application.teams');
     }
     public function myapps()
     {
