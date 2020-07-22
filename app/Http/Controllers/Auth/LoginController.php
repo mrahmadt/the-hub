@@ -198,6 +198,12 @@ class LoginController extends Controller
         $apiResponse = curl_exec($ch);
         $apiResponse_json = \json_encode($apiResponse);
 
+
+        if($apiResponse_json->token_type){
+            return response()->json(['data'=>$apiResponse_json->token_type],200);
+        }else{
+            return response()->json(['error'=>$apiResponse_json->error],200);
+        }
         /*
 
         {\"error\":\"invalid_grant\"
@@ -217,7 +223,7 @@ class LoginController extends Controller
         //dd($apiResponse);
         //$jsonArrayResponse - json_decode($apiResponse);
         curl_close($ch); 
-        return response()->json(['error'=>$apiResponse_json->error],200);
+        
 
 /*
 
