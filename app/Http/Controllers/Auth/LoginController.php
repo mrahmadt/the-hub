@@ -28,8 +28,8 @@ class LoginController extends Controller
 
     public function show(Request $request)
     {
-        print "SHOW";
-        $data = $request->session()->all();
+        print "SHOW C" ;
+        $data = $request->cookie(); //$request->session()->all();
         dd($data);
         if(count($this->providers)>1){
             return view('auth.login');
