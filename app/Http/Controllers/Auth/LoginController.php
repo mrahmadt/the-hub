@@ -211,7 +211,8 @@ class LoginController extends Controller
         curl_close($ch); 
 
         $request->session()->put('session', 'ok');
-
+        $request->cookie('item_name', 'item_value', 550);
+        
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
             try {
