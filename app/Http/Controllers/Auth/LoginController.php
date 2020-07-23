@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
+//use Illuminate\Support\Facades\Cookie;
+
 //TODO: do we need to check Azure AD for each action?
 //TODO: How to setup a time out after inactivity
 
