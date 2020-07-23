@@ -36,6 +36,7 @@
         if (context && context.theme) {
             setTheme(context.theme);
         }
+        //microsoftTeams.appInitialization.notifyAppLoaded();
     });
 
     // Handle theme changes
@@ -120,6 +121,7 @@
                     }
                 })
                 .then((responseJson) => {
+                    microsoftTeams.appInitialization.notifySuccess();
                     display("2. then responseJson");
                     console.log(responseJson);
                     if (responseJson.error) {
