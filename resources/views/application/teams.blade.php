@@ -102,10 +102,11 @@
                         'tid': context.tid,
                         'token': clientSideToken 
                     }),
-                    //mode: 'cors',
-                    mode: 'no-cors',
+                    mode: 'cors',
+                    //mode: 'no-cors',
                     //cache: 'default',
-                    credentials: 'same-origin'
+                    credentials: 'same-origin',
+                    redirect: 'follow'
                 })
                 .then((response) => {
                     display("2. then response");
@@ -125,12 +126,12 @@
                         display("2. then responseJson.error");
                         reject(responseJson.error);
                     } else {
-                        display("2. then responseJson.error else");
-                        console.log(responseJson);
-                        window.location.href = responseJson;
-                        const serverSideToken = responseJson;
-                        //display(serverSideToken);
-                        resolve(serverSideToken);
+                    //     display("2. then responseJson.error else");
+                    //     console.log(responseJson);
+                    //     window.location.href = responseJson;
+                    //     const serverSideToken = responseJson;
+                    //     //display(serverSideToken);
+                    //     resolve(serverSideToken);
                     }
                 });
             });
@@ -203,9 +204,6 @@
         .then((clientSideToken) => {
             return getServerSideToken(clientSideToken);
         })
-        /*.then((serverSideToken) => {
-            return useServerSideToken(serverSideToken);
-        })*/
         .catch((error) => {
             if (error === "invalid_grant") {
                 display(`Error: ${error} - user or admin consent required`);

@@ -47,3 +47,4 @@ Route::get('/teams/myapps','ApplicationsController@teamsUI')->name('showMyAppsTe
 Route::post('/teams/auth/token','Auth\LoginController@teamsToken')->name('teamsToken');
 Route::get('/teams/auth/auth-start','Auth\LoginController@teamsAuthStart')->name('teamsAuthStart');
 Route::get('/teams/auth/auth-end','Auth\LoginController@teamsAuthEnd')->name('teamsAuthEnd');
+

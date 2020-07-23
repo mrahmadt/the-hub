@@ -191,7 +191,6 @@ class LoginController extends Controller
         $scopes = ["https://graph.microsoft.com/User.Read"];
 
         $url = "https://login.microsoftonline.com/" . $tid . "/oauth2/v2.0/token";
-        //$url = "https://login.windows.net/common/oauth2/token/" . $tid . "/oauth2/v2.0/token";
         
         $params = [
             'client_id' => config("app.graph_client_id"),
@@ -215,9 +214,6 @@ class LoginController extends Controller
 
         $apiResponse = curl_exec($ch);
         curl_close($ch); 
-
-        $request->session()->put('session', 'ok');
-        $request->cookie('item_name', 'item_value', 550);
         
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
@@ -228,8 +224,8 @@ class LoginController extends Controller
             if((!isset($user->email)) || empty( $user->email )){
                 return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
             }else{
-                $this->loginOrCreateAccount($user, $driver,false);
-                return response()->json([url('/myapps')],200);
+                return $this->loginOrCreateAccount($user, $driver,false);
+                //return response()->json([url('/myapps')],200);
             }
         }elseif(isset($apiResponse_array->error)){
             return response()->json(['error'=>$apiResponse_array->error],200);
@@ -237,4 +233,13 @@ class LoginController extends Controller
             return response()->json(['error'=>'unknown'],200);
         }
     }
+
+    /*
+    $sessions = $request->session()->all();
+    $cookies = $request->cookie();
+    $referrer = $request->headers->get('referer');
+    $request->session()->put('session', 'ok3');
+    return response()->json(['referrer'=>$referrer],200)->withCookie(cookie('item_name', '11111111111', 550));
+    */
+
 }
