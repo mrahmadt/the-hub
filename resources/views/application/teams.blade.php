@@ -103,7 +103,7 @@
                     }),
                     //mode: 'cors',
                     cache: 'default',
-                    credentials: 'same-origin'
+                    credentials: 'include'
                 })
                 .then((response) => {
                     display("2. then response");
