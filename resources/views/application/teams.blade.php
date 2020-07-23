@@ -147,7 +147,8 @@
                     "authorization": "bearer " + data
                 },
                 mode: 'cors',
-                cache: 'default'
+                cache: 'default',
+                credentials: 'include'
             })
             .then((response) => {
                 if (response.ok) {
