@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
 <title>{{__('messages.AppName')}} - Logout</title>
-<meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 <body class="theme-light">
@@ -88,7 +87,6 @@
     function getServerSideToken(clientSideToken) {
 
         display("2. Exchange for server-side token");
-        const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
 
         return new Promise((resolve, reject) => {
 
@@ -98,13 +96,14 @@
                     method: 'post',
                     headers: {
                         'Content-Type': 'application/json',
-                        "X-CSRF-Token": csrfToken
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify({
                         'tid': context.tid,
                         'token': clientSideToken 
                     }),
                     //mode: 'cors',
+                    mode: 'no-cors',
                     //cache: 'default',
                     credentials: 'same-origin'
                 })
