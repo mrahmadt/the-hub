@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,7 +61,6 @@
   (function () {
     'use strict';
 
-    const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
     // 1. Get auth token
     // Ask Teams to get us a token from AAD
     function getClientSideToken() {
@@ -90,6 +88,7 @@
     function getServerSideToken(clientSideToken) {
 
         display("2. Exchange for server-side token");
+        const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
 
         return new Promise((resolve, reject) => {
 
