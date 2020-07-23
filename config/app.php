@@ -2,12 +2,6 @@
 
 return [
 
-    'azure_ad_key' => env('AZURE_KEY'),
-    'azure_ad_secret' => env('AZURE_SECRET'),
-
-    'microsoft_key' => env('MICROSOFT_KEY'),
-    'microsoft_secret' => env('MICROSOFT_SECRET'),
-
     'graph_client_id' => env('GRAPH_KEY'),
     'graph_client_secret' => env('GRAPH_SECRET'),
     'graph_redirect' => env('GRAPH_REDIRECT_URI'),

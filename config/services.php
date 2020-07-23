@@ -29,22 +29,13 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    'azure' => [
-        'client_id' => env('AZURE_KEY'),
-        'client_secret' => env('AZURE_SECRET'),
-        'redirect' => env('AZURE_REDIRECT_URI')
-    ],
+
     'graph' => [
         'client_id' => env('GRAPH_KEY'),
         'client_secret' => env('GRAPH_SECRET'),
         'redirect' => env('GRAPH_REDIRECT_URI'),
         'tenant_id' => env('GRAPH_TENANT_ID','common')
     ],
-    'microsoft' => [
-        'client_id' => env('MICROSOFT_KEY'),
-        'client_secret' => env('MICROSOFT_SECRET'),
-        'redirect' => env('MICROSOFT_REDIRECT_URI'),
-        
-    ],
+
     
 ];

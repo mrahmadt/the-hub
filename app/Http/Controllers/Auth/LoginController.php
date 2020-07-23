@@ -18,18 +18,19 @@ class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+
+        //$this->middleware('guest', ['except' => 'logout']);
     }
 
     protected $providers = [
         'graph'
-        //'microsoft',
-        //'azure'
     ];
 
-    public function show()
+    public function show(Request $request)
     {
-        dd(Auth::user());
+        print "SHOW";
+        $data = $request->session()->all();
+        dd($data);
         if(count($this->providers)>1){
             return view('auth.login');
         }else{
@@ -40,7 +41,6 @@ class LoginController extends Controller
     public function logout() {
         Auth::logout();
         return view('user.logout');
-        //return redirect()->route('login');
     }
 
     /**
@@ -147,6 +147,7 @@ class LoginController extends Controller
     }
 
     public function teamsToken(Request $request){
+
         $driver = 'graph';
         $json = [
             'status' => 'error',
@@ -209,6 +210,7 @@ class LoginController extends Controller
         $apiResponse = curl_exec($ch);
         curl_close($ch); 
 
+        $request->session()->put('session', 'ok');
 
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
