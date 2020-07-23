@@ -221,8 +221,9 @@ class LoginController extends Controller
             if((!isset($user->email)) || empty( $user->email )){
                 return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
             }else{
-                $islogin = Auth::check();
                 $this->loginOrCreateAccount($user, $driver);
+                $islogin = Auth::check();
+
                 return response()->json([url('/myapps'),'$islogin'=>$islogin],200);
             }
         }elseif(isset($apiResponse_array->error)){
