@@ -101,8 +101,9 @@
                         'tid': context.tid,
                         'token': clientSideToken 
                     }),
-                    mode: 'cors',
-                    cache: 'default'
+                    //mode: 'cors',
+                    cache: 'default',
+                    credentials: 'same-origin'
                 })
                 .then((response) => {
                     display("2. then response");
