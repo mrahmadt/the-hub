@@ -213,7 +213,7 @@ class LoginController extends Controller
         ]);
 
         $apiResponse = curl_exec($ch);
-        curl_close($ch); 
+        curl_close($ch);
         
         $apiResponse_array = \json_decode($apiResponse);
         if(isset($apiResponse_array->access_token)){
