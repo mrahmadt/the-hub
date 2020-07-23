@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "socialiteproviders/microsoft": "^3.0",
-        "socialiteproviders/microsoft-azure": "^3.1"
+        "socialiteproviders/microsoft-azure": "^3.1",
+        "socialiteproviders/microsoft-graph": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

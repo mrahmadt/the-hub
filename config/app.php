@@ -8,6 +8,12 @@ return [
     'microsoft_key' => env('MICROSOFT_KEY'),
     'microsoft_secret' => env('MICROSOFT_SECRET'),
 
+    'graph_client_id' => env('GRAPH_KEY'),
+    'graph_client_secret' => env('GRAPH_SECRET'),
+    'graph_redirect' => env('GRAPH_REDIRECT_URI'),
+    'graph_tenant_id' => env('GRAPH_TENANT_ID','common'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

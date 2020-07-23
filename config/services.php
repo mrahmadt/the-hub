@@ -37,13 +37,14 @@ return [
     'graph' => [
         'client_id' => env('GRAPH_KEY'),
         'client_secret' => env('GRAPH_SECRET'),
-        'redirect' => env('GRAPH_REDIRECT_URI')
+        'redirect' => env('GRAPH_REDIRECT_URI'),
+        'tenant_id' => env('GRAPH_TENANT_ID','common')
     ],
     'microsoft' => [
         'client_id' => env('MICROSOFT_KEY'),
         'client_secret' => env('MICROSOFT_SECRET'),
         'redirect' => env('MICROSOFT_REDIRECT_URI'),
-        'tenant_id' => '22b15677-a9ae-4b66-9064-cbde5f13b06f',
+        
     ],
     
 ];

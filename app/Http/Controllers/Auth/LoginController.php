@@ -22,7 +22,8 @@ class LoginController extends Controller
     }
 
     protected $providers = [
-        'microsoft',
+        'graph'
+        //'microsoft',
         //'azure'
     ];
 
@@ -137,15 +138,15 @@ class LoginController extends Controller
 
     
     public function teamsAuthStart(Request $request){
-        return view('auth.teams-start',['clientId'=>config("app.microsoft_key")]);
+        return view('auth.teams-start',['clientId'=>config("app.graph_client_id")]);
     }
     
     public function teamsAuthEnd(Request $request){
-        return view('auth.teams-end',['clientId'=>config("app.microsoft_secret")]);
+        return view('auth.teams-end',['clientId'=>config("app.graph_client_secret")]);
     }
 
     public function teamsToken(Request $request){
-        $driver = 'microsoft';
+        $driver = 'graph';
         $json = [
             'status' => 'error',
             'error' => 'Unknown Error',
@@ -185,8 +186,8 @@ class LoginController extends Controller
         //$url = "https://login.windows.net/common/oauth2/token/" . $tid . "/oauth2/v2.0/token";
         
         $params = [
-            'client_id' => config("app.microsoft_key"),
-            'client_secret' => config("app.microsoft_secret"),
+            'client_id' => config("app.graph_client_id"),
+            'client_secret' => config("app.graph_client_secret"),
             'grant_type' => "urn:ietf:params:oauth:grant-type:jwt-bearer",
             'assertion' => $token,
             'requested_token_use' => "on_behalf_of",
