@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-alert('New Build! 2');
 if ($(window).width() <= 576) {
     $('.collapse-sm').each(function(){
       $(this).addClass('collapse'); 

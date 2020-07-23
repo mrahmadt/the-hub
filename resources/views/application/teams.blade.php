@@ -121,7 +121,6 @@
                     }
                 })
                 .then((responseJson) => {
-                    microsoftTeams.appInitialization.notifySuccess();
                     display("2. then responseJson");
                     console.log(responseJson);
                     if (responseJson.error) {
