@@ -18,7 +18,7 @@
     Hello Teams
 </div></div>
 
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 </div>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="https://unpkg.com/@microsoft/teams-js@1.5.0/dist/MicrosoftTeams.min.js"></script>
@@ -60,6 +60,7 @@
   (function () {
     'use strict';
 
+    const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
     // 1. Get auth token
     // Ask Teams to get us a token from AAD
     function getClientSideToken() {
@@ -95,15 +96,16 @@
                 fetch('/teams/auth/token', {
                     method: 'post',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        "X-CSRF-Token": csrfToken
                     },
                     body: JSON.stringify({
                         'tid': context.tid,
                         'token': clientSideToken 
                     }),
                     //mode: 'cors',
-                    cache: 'default',
-                    credentials: 'include'
+                    //cache: 'default',
+                    credentials: 'same-origin'
                 })
                 .then((response) => {
                     display("2. then response");
