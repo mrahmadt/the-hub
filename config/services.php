@@ -43,7 +43,7 @@ return [
         'client_id' => env('MICROSOFT_KEY'),
         'client_secret' => env('MICROSOFT_SECRET'),
         'redirect' => env('MICROSOFT_REDIRECT_URI'),
-        'tenant' => '22b15677-a9ae-4b66-9064-cbde5f13b06f',
+        'tenant_id' => '22b15677-a9ae-4b66-9064-cbde5f13b06f',
     ],
     
 ];
