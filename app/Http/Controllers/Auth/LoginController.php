@@ -29,6 +29,7 @@ class LoginController extends Controller
 
     public function show()
     {
+        dd(Auth::user());
         if(count($this->providers)>1){
             return view('auth.login');
         }else{
@@ -213,7 +214,6 @@ class LoginController extends Controller
         if(isset($apiResponse_array->access_token)){
             try {
                 $user = Socialite::driver( $driver )->userFromToken($apiResponse_array->access_token);
-                        // check for email in returned user
             } catch (\Exception $e) {
             }
             if((!isset($user->email)) || empty( $user->email )){
@@ -222,7 +222,6 @@ class LoginController extends Controller
                 $this->loginOrCreateAccount($user, $driver);
                 return response()->json([url('/myapps')],200);
             }
-
         }elseif(isset($apiResponse_array->error)){
             return response()->json(['error'=>$apiResponse_array->error],200);
         }else{
