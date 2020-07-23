@@ -94,7 +94,7 @@ class LoginController extends Controller
             ->withErrors(['msg' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
 
-    protected function loginOrCreateAccount($providerUser, $driver)
+    protected function loginOrCreateAccount($providerUser, $driver,$redirect=true )
     {
         $provider_id = $providerUser->getId();
         // check for already has account
@@ -131,7 +131,11 @@ class LoginController extends Controller
         }
         // login the user
         Auth::login($user, true);
-        return $this->sendSuccessResponse();
+        if($redirect) {
+            return $this->sendSuccessResponse();
+        }else{
+            return true;
+        }
     }
 
     private function isProviderAllowed($driver)
@@ -224,7 +228,7 @@ class LoginController extends Controller
             if((!isset($user->email)) || empty( $user->email )){
                 return response()->json(['error'=>"No email id returned from {$driver} provider."],200);
             }else{
-                $this->loginOrCreateAccount($user, $driver);
+                $this->loginOrCreateAccount($user, $driver,false);
                 return response()->json([url('/myapps')],200);
             }
         }elseif(isset($apiResponse_array->error)){
