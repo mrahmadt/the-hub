@@ -146,9 +146,9 @@
                     "accept": "application/json",
                     "authorization": "bearer " + data
                 },
-                mode: 'cors',
+                //mode: 'cors',
                 cache: 'default',
-                credentials: 'include'
+                credentials: 'same-origin'
             })
             .then((response) => {
                 if (response.ok) {
