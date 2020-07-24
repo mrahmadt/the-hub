@@ -10,12 +10,12 @@
 <body class="theme-light">
 <div class="container text-center" style="padding-top:10em;">
 
-<div class="text-center" id="logs">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex text-center justify-content-center" id="spinner">
     <div class="spinner-grow text-info" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>
     </div>
     </div>
+<div class="text-center" id="logs">
 </div>
 
 </div>
@@ -171,6 +171,9 @@
             return getServerSideToken(clientSideToken);
         })
         .catch((error) => {
+            
+            var spinnerDiv = document.getElementById('spinner');
+            spinnerDiv.style.display = "none";
             if (error === "invalid_grant") {
                 display(`User consent required`);
                 // Display in-line button so user can consent
