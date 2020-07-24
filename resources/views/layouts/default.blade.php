@@ -49,7 +49,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
     <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item">
-        <a class="nav-link {{ (request()->is('myapps')) ? 'active' : '' }}" href="{{ url('/myapps') }}">{{ __('messages.My Apps') }}</a>
+        <a class="nav-link {{ (request()->is('myapps')) ? 'active' : '' }} {{ (request()->is('/')) ? 'active' : '' }} {{ (request()->is('home')) ? 'active' : '' }}" href="{{ url('/myapps') }}">{{ __('messages.My Apps') }}</a>
       </li>
       @foreach($tabs as $tab)
       <li class="nav-item">
