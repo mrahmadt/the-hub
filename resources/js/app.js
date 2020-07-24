@@ -74,14 +74,11 @@ $(document).ready(function(){
     });
 
   if(inIframe()){
-      console.log('iframe');
     $('.NewPageForIframe').each(function( index ) {
         console.log( index + ": " + $( this ).attr('href') );
         $( this ).attr('target','_new');
     
     });
-  }else{
-    console.log('NO iframe');
   }
 });
 

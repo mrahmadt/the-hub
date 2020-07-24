@@ -58,7 +58,6 @@
         return new Promise((resolve, reject) => {
             microsoftTeams.authentication.getAuthToken({
                 successCallback: (result) => {
-                    display(result)
                     resolve(result);
                 },
                 failureCallback: function (error) {
