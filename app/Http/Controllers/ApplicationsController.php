@@ -112,6 +112,10 @@ class ApplicationsController extends Controller
             ->orderBy('updated_at', 'desc')
             ->take(10)
             ->get();
+
+            foreach($applications as $application){
+                $user->applications()->attach($application->id);
+            }
         }
         $settings = Setting::getSettings();
 
