@@ -106,9 +106,9 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
 @yield('content')
 
 @if (request()->is('myapps')||request()->is('/')||request()->is('home'))
-<li class="nav-item d-lg-none">
+<div class="d-lg-none mb-2 mt-2">
   <a class="btn btn-block btn-primary show-unpin-apps" href="#">Edit My Apps</a>
-</li>
+</div>
 @endif
 </div>
 
