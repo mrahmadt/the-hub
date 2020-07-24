@@ -49,7 +49,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
     <div class="navbar-nav-scroll">
     <ul class="navbar-nav bd-navbar-nav flex-row">
       <li class="nav-item">
-        <a class="nav-link {{ (request()->is('myapps')) ? 'active' : '' }} {{ (request()->is('/')) ? 'active' : '' }} {{ (request()->is('home')) ? 'active' : '' }}" href="{{ url('/myapps') }}">{{ __('messages.My Apps') }}</a>
+        <a class="nav-link {{ (request()->is('myapps')||request()->is('/')||request()->is('home')) ? 'active' : '' }}" href="{{ url('/myapps') }}">{{ __('messages.My Apps') }}</a>
       </li>
       @foreach($tabs as $tab)
       <li class="nav-item">
@@ -66,14 +66,10 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
         @endif
       </li>
       @endforeach
-      
-      @if (request()->is('myapps'))
       <li class="nav-item d-lg-none">
-        <a class="nav-link show-unpin-apps" href="#">Edit My Apps</a>
-      </li>
-      @endif
-      <li class="nav-item d-lg-none">
-        <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
+        <a class="nav-link" href="{{ url('/logout') }}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-closed-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+        </svg> Logout</a>
       </li>
 
     </ul>
@@ -86,7 +82,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
       <a class="dropdown-item" href="{{ url('/myapps') }}">{{__('messages.Hello')}} {{$user->name}}</a>
-    @if (request()->is('myapps'))
+    @if (request()->is('myapps')||request()->is('/')||request()->is('home'))
         <a class="dropdown-item show-unpin-apps" href="#">Edit my apps</a>
     @endif
         <div class="dropdown-divider"></div>
@@ -108,6 +104,12 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
 </div>
 @endif  
 @yield('content')
+
+@if (request()->is('myapps')||request()->is('/')||request()->is('home'))
+<li class="nav-item d-lg-none">
+  <a class="btn btn-block btn-primary show-unpin-apps" href="#">Edit My Apps</a>
+</li>
+@endif
 </div>
 
 
