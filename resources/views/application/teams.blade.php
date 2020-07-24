@@ -172,8 +172,9 @@
         })
         .catch((error) => {
             
-            var spinnerDiv = document.getElementById('spinner');
-            spinnerDiv.style.display = "none";
+            //var spinnerDiv = document.getElementById('spinner');
+            //spinnerDiv.style.display = "none";
+            $('#spinner').addClass('d-none');
             if (error === "invalid_grant") {
                 display(`User consent required`);
                 // Display in-line button so user can consent
