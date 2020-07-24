@@ -99,7 +99,13 @@ class LoginController extends Controller
         $user = User::where(['provider'=> $driver, 'provider_id'=>$provider_id])->first();
 
         //TODO: if we have the email in database the creation will fail
-        $avatar = User::getAvatar($providerUser->token);
+
+        $avatar = null;
+        if($driver=='graph'){
+            $avatar = User::getAvatar($providerUser->token);
+        }elseif(isset($providerUser->avatar)){
+            $avatar = $providerUser->avatar;
+        }
 
         // if user already found
         if( $user ) {
