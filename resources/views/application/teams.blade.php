@@ -8,16 +8,15 @@
 
 </head>
 <body class="theme-light">
-<div class="container" style="padding-top:10em;">
-<div class="surface">
-  <div class="panel">
+<div class="container text-center" style="padding-top:10em;">
 
-
-  </div>
+<div class="text-center">
+    <div class="d-flex justify-content-center">
+    <div class="spinner-grow text-info" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    </div>
 </div>
-<div class="card"><div class="card-body img-auto-fluid" id="logs">
-    Hello Teams
-</div></div>
 
 </div>
 <script src="{{asset('js/app.js')}}"></script>
