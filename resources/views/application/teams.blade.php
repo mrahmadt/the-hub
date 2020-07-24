@@ -107,35 +107,6 @@
         });
     }
 
-    // 3. Get the server side token and use it to call the Graph API
-    function useServerSideToken(data) {
-
-        display("3. Call https://graph.microsoft.com/v1.0/me/ with the server side token");
-
-        return fetch("https://graph.microsoft.com/v1.0/me/",
-            {
-                method: 'GET',
-                headers: {
-                    "accept": "application/json",
-                    "authorization": "bearer " + data
-                },
-                //mode: 'cors',
-                cache: 'default',
-                credentials: 'same-origin'
-            })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw (`Error ${response.status}: ${response.statusText}`);
-                }
-            })
-            .then((profile) => {
-                display(JSON.stringify(profile, undefined, 4), 'pre');
-            });
-
-    }
-
     // Show the consent pop-up
     function requestConsent() {
         return new Promise((resolve, reject) => {
@@ -171,13 +142,9 @@
             return getServerSideToken(clientSideToken);
         })
         .catch((error) => {
-            
-            //var spinnerDiv = document.getElementById('spinner');
-            //spinnerDiv.style.display = "none";
             $('#spinner').addClass('d-none');
             if (error === "invalid_grant") {
-                $('#logs').html('User consent required');
-                //display(`User consent required`);
+                $('#logs').html('<p>User consent required</p>');
                 // Display in-line button so user can consent
                 let button = display("Consent", "button");
                 button.className ="btn btn-primary btn-xl"
@@ -185,28 +152,19 @@
                     requestConsent()
                         .then((result) => {
                             // Consent succeeded - use the token we got back
-                            let accessToken = JSON.parse(result).accessToken;
-                            display(`Received access token ${accessToken}`);
-                            //TODO FIX ME
-                            alert('FIX ME');
-                            alert($accessToken);
-                            //useServerSideToken(accessToken);
+                            //let accessToken = JSON.parse(result).accessToken;
+                            $('#spinner').removeClass('d-none');
+                            $('#logs').addClass('d-none');
+                            window.location.href = window.location.origin + "/myapps",
                         })
                         .catch((error) => {
                             $('#logs').html('ERROR: ' + error);
-                            $('#logs').append('<a href="javascript:window.location.reload();" class="btn btn-primary btn-xl"> Refresh page</a>');
-                            //display(`ERROR ${error}`);
-                            // Consent failed - offer to refresh the page
-                            //button.disabled = true;
-                            //let refreshButton = display("Refresh page", "button");
-                            //button.className ="btn btn-primary btn-xl"
-                            //refreshButton.onclick = (() => { window.location.reload(); });
+                            $('#logs').append('<p><a href="javascript:window.location.reload();" class="btn btn-primary btn-xl"> Refresh page</a></p>');
                         });
                 });
             } else {
                 // Something else went wrong
                 $('#logs').html('Error: ' + error);
-                //display(`Error: ${error}`);
             }
         });
 
