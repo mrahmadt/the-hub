@@ -155,7 +155,7 @@
                             //let accessToken = JSON.parse(result).accessToken;
                             $('#spinner').removeClass('d-none');
                             $('#logs').addClass('d-none');
-                            window.location.href = window.location.origin + "/myapps",
+                            window.location.href = window.location.origin + "/myapps";
                         })
                         .catch((error) => {
                             $('#logs').html('ERROR: ' + error);
