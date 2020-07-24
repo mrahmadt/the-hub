@@ -1,4 +1,6 @@
 
+# The Hub
+
 Do you have many resources in your company that you wish to put them in one place and share it with your employees?
 
 **The Hub** is a web application that helps you build ***your Company App Store***. Your employees can browse and pin your resources and access them from their laptop and mobile.
