@@ -172,9 +172,10 @@
         })
         .catch((error) => {
             if (error === "invalid_grant") {
-                display(`Error: ${error} - user or admin consent required`);
+                display(`User consent required`);
                 // Display in-line button so user can consent
                 let button = display("Consent", "button");
+                button.className ="btn btn-primary btn-xl"
                 button.onclick = (() => {
                     requestConsent()
                         .then((result) => {

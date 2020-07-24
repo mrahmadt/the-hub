@@ -69,7 +69,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
       
       @if (request()->is('myapps'))
       <li class="nav-item d-lg-none">
-        <a class="nav-link show-unpin-apps" href="#">Edit my apps</a>
+        <a class="nav-link show-unpin-apps" href="#">Edit My Apps</a>
       </li>
       @endif
       <li class="nav-item d-lg-none">
