@@ -82,7 +82,7 @@ bg-primary or bg-secondary or bg-success or bg-danger or bg-warning or bg-info o
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
     <li class="nav-item dropdown">
       <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <img src="{{$user->avatar ?? asset('/img/avatar1.png')}}" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+      <img src="{{$user->avatar ?? asset('/img/avatar1.png')}}" class="rounded-circle z-depth-0" alt="My Profile" height="35">
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
       <a class="dropdown-item" href="{{ url('/myapps') }}">{{__('messages.Hello')}} {{$user->name}}</a>

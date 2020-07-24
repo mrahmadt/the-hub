@@ -82,7 +82,7 @@ class User extends Authenticatable
             
             $response = curl_exec($curl);
             curl_close($curl);
-            if ($image_type != '') {
+            if ($image_type != '' && $image_type != 'application/json') {
                 $base64 = 'data:' . $image_type . ';base64,' . base64_encode($response);
             } else {
                 $base64 = null;

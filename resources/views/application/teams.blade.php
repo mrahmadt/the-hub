@@ -10,7 +10,7 @@
 <body class="theme-light">
 <div class="container text-center" style="padding-top:10em;">
 
-    <div class="d-flex text-center justify-content-center" id="spinner">
+    <div class="text-center" id="spinner">
     <div class="spinner-grow text-info" style="width: 3rem; height: 3rem;" role="status">
         <span class="sr-only">Loading...</span>
     </div>
@@ -176,7 +176,8 @@
             //spinnerDiv.style.display = "none";
             $('#spinner').addClass('d-none');
             if (error === "invalid_grant") {
-                display(`User consent required`);
+                $('#logs').html('User consent required');
+                //display(`User consent required`);
                 // Display in-line button so user can consent
                 let button = display("Consent", "button");
                 button.className ="btn btn-primary btn-xl"
@@ -188,19 +189,24 @@
                             display(`Received access token ${accessToken}`);
                             //TODO FIX ME
                             alert('FIX ME');
+                            alert($accessToken);
                             //useServerSideToken(accessToken);
                         })
                         .catch((error) => {
-                            display(`ERROR ${error}`);
+                            $('#logs').html('ERROR: ' + error);
+                            $('#logs').append('<a href="javascript:window.location.reload();" class="btn btn-primary btn-xl"> Refresh page</a>');
+                            //display(`ERROR ${error}`);
                             // Consent failed - offer to refresh the page
-                            button.disabled = true;
-                            let refreshButton = display("Refresh page", "button");
-                            refreshButton.onclick = (() => { window.location.reload(); });
+                            //button.disabled = true;
+                            //let refreshButton = display("Refresh page", "button");
+                            //button.className ="btn btn-primary btn-xl"
+                            //refreshButton.onclick = (() => { window.location.reload(); });
                         });
                 });
             } else {
                 // Something else went wrong
-                display(`Error: ${error}`);
+                $('#logs').html('Error: ' + error);
+                //display(`Error: ${error}`);
             }
         });
 
