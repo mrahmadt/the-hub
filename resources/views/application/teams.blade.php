@@ -32,8 +32,6 @@
         if (context && context.theme) {
             setTheme(context.theme);
         }
-        //microsoftTeams.appInitialization.notifyAppLoaded();
-        //microsoftTeams.appInitialization.notifySuccess();
     });
 
     // Handle theme changes
@@ -87,6 +85,8 @@
                     redirect: 'follow'
                 })
                 .then((response) => {
+                    microsoftTeams.appInitialization.notifyAppLoaded();
+                    microsoftTeams.appInitialization.notifySuccess();
                     if (response.ok) {
                         return response.json();
                     } else {
@@ -94,6 +94,7 @@
                     }
                 })
                 .then((responseJson) => {
+                    
                     console.log(responseJson);
                     if (responseJson.error) {
                         reject(responseJson.error);
