@@ -30,9 +30,6 @@ class LoginController extends Controller
 
     public function show(Request $request)
     {
-        print "SHOW C" ;
-        $data = $request->cookie(); //$request->session()->all();
-        dd($data);
         if(count($this->providers)>1){
             return view('auth.login');
         }else{
@@ -94,6 +91,7 @@ class LoginController extends Controller
             ->withErrors(['msg' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
 
+    
     protected function loginOrCreateAccount($providerUser, $driver,$redirect=true )
     {
         $provider_id = $providerUser->getId();
@@ -101,12 +99,7 @@ class LoginController extends Controller
         $user = User::where(['provider'=> $driver, 'provider_id'=>$provider_id])->first();
 
         //TODO: if we have the email in database the creation will fail
-
-        $avatar = null;
-        try{
-            $avatar = $providerUser->avatar;
-        } catch (\Exception $e) {
-        }
+        $avatar = User::getAvatar($providerUser->token);
 
         // if user already found
         if( $user ) {
@@ -233,13 +226,5 @@ class LoginController extends Controller
             return response()->json(['error'=>'unknown'],200);
         }
     }
-
-    /*
-    $sessions = $request->session()->all();
-    $cookies = $request->cookie();
-    $referrer = $request->headers->get('referer');
-    $request->session()->put('session', 'ok3');
-    return response()->json(['referrer'=>$referrer],200)->withCookie(cookie('item_name', '11111111111', 550));
-    */
 
 }

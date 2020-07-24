@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="{{asset('css/app.css')}}">
-<title>{{__('messages.AppName')}} - Auth Start</title>
+<title>{{__('messages.AppName')}} - MS Teams SSO</title>
 </head>
 <body class="theme-light">
-<div class="container" style="padding-top:10em;">
+<div class="container">
 <script src="https://unpkg.com/@microsoft/teams-js@1.5.0/dist/MicrosoftTeams.min.js"></script>
 <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.15/js/adal.min.js"></script>
 <script>
