@@ -27,8 +27,6 @@ Below animated screenshots from The Hub:
 ![IMG_0022](https://user-images.githubusercontent.com/957921/88452838-a64ada00-ce6a-11ea-864f-60fa19f193e3.gif)
 
 ### Microsoft Teams
-![IMG_0025](https://user-images.githubusercontent.com/957921/88453041-4fde9b00-ce6c-11ea-9e78-04aa3f2c6abd.gif)
-
-
+![IMG_0027](https://user-images.githubusercontent.com/957921/88453187-6fc28e80-ce6d-11ea-903d-29ecb56870a8.gif)
 
 
