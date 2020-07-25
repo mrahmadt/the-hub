@@ -18,7 +18,7 @@ It's also integrated with [Azure Active Directory](https://www.google.com/url?sa
 - Support Microsoft Teams.
 - SSO with Azure Active Directory.
 
-Below animated screenshots from The Hub:
+## Screenshots
 
 ### Internet Browser
 ![IMG_0023](https://user-images.githubusercontent.com/957921/88452831-9e8b3580-ce6a-11ea-89b4-bd56b448d05f.gif)
