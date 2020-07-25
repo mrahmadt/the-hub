@@ -21,7 +21,9 @@ It's also integrated with [Azure Active Directory](https://www.google.com/url?sa
 Below animated screenshots from The Hub:
 
 
-![IMG_0023](https://user-images.githubusercontent.com/957921/88452831-9e8b3580-ce6a-11ea-89b4-bd56b448d05f.gif) ![IMG_0022](https://user-images.githubusercontent.com/957921/88452838-a64ada00-ce6a-11ea-864f-60fa19f193e3.gif)
+![IMG_0023](https://user-images.githubusercontent.com/957921/88452831-9e8b3580-ce6a-11ea-89b4-bd56b448d05f.gif)
+
+![IMG_0022](https://user-images.githubusercontent.com/957921/88452838-a64ada00-ce6a-11ea-864f-60fa19f193e3.gif)
 
 
 
