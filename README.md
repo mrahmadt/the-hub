@@ -9,7 +9,6 @@ Do you have many resources in your company that you wish to put them in one plac
 
 It's also integrated with [Azure Active Directory](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjciN-2hubqAhXFzIUKHVmaC50QFjAJegQIARAB&url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Factive-directory%2Ffundamentals%2Factive-directory-whatis&usg=AOvVaw3Y4jZSujeXwZpUX0VNFYQZ) (other SSO providers supported too with few modifications) to provide a single sign-on experience and can be accessed from [Microsoft Teams](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVj7DEhubqAhVB1BoKHSgHCBkQFjAAegQIBBAC&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fmicrosoft-teams%2Fgroup-chat-software&usg=AOvVaw3pgLm_fduw13E3nS-Yxxkk) directly.
 
-
 ## Features
 - "My Apps" page to pin/bookmark your favorite resources.
 - Organize your resources in different categories.
@@ -17,6 +16,10 @@ It's also integrated with [Azure Active Directory](https://www.google.com/url?sa
 - Support Mobile Web App (install to your iOS & Android).
 - Support Microsoft Teams.
 - SSO with Azure Active Directory.
+
+## Installation Steps
+
+https://github.com/mrahmadt/The-Hub/wiki/Installation-Steps
 
 ## Screenshots
 
