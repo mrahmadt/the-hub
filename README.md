@@ -1,7 +1,7 @@
 
 # The Hub
 
-**The Hub** is a web application that helps you build ***your Company Application Store***. Your employees can browse and pin your resources (Web Apps, Links..etc) and access them from their laptop and mobile.
+**The Hub** is a web application that helps you build ***your Company Application Store***. Your employees can browse and pin your resources (Web Apps, Links, etc.) and access them from anywhere anytime without the need to ask around for support.
 
 
 **The Hub** is a simple easy to use web app and, most importantly, will help your employees easily find any application (HR Portal, Finance, Business Apps, forms...etc.) in the company from one unified portal.
