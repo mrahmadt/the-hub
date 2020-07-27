@@ -12,7 +12,7 @@ It's also integrated with [Azure Active Directory](https://www.google.com/url?sa
 - "My Apps" page to pin/bookmark your favorite resources.
 - Organize your resources in different categories.
 - Share announcements and posts to all employees.
-- Support Mobile Web App (install to your iOS & Android).
+- Support Mobile Web App (install it to your iOS & Android).
 - Support Microsoft Teams.
 - SSO with Azure Active Directory.
 
@@ -23,6 +23,8 @@ https://github.com/mrahmadt/The-Hub/wiki/Installation-Steps
 ## Screenshots
 
 ### Internet Browser
+![desktop1](https://user-images.githubusercontent.com/957921/88496518-06a25e80-cfc6-11ea-828a-69613e34f52d.png)
+
 ![IMG_0023](https://user-images.githubusercontent.com/957921/88452831-9e8b3580-ce6a-11ea-89b4-bd56b448d05f.gif)
 
 ### Mobile Web App
