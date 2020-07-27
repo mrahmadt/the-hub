@@ -22,9 +22,16 @@ https://github.com/mrahmadt/The-Hub/wiki/Installation-Steps
 
 ## Screenshots
 
-### Internet Browser
+### User Personal Apps (Favorited/Pinned Apps)
 ![desktop1](https://user-images.githubusercontent.com/957921/88496518-06a25e80-cfc6-11ea-828a-69613e34f52d.png)
 
+### Apps Categories
+![desktop2](https://user-images.githubusercontent.com/957921/88496723-baa3e980-cfc6-11ea-8c1f-114fdbb1dd21.PNG)
+
+### Company Announcements/Posts
+![posts](https://user-images.githubusercontent.com/957921/88496732-bd9eda00-cfc6-11ea-93e3-69d121056345.PNG)
+
+### iPad/Tablets
 ![IMG_0023](https://user-images.githubusercontent.com/957921/88452831-9e8b3580-ce6a-11ea-89b4-bd56b448d05f.gif)
 
 ### Mobile Web App
